@@ -1,0 +1,14 @@
+[Unit]
+Description=PortfolioIQ Dashboard
+After=network.target
+
+[Service]
+Type=simple
+User=ec2-user
+WorkingDirectory=/home/ec2-user/portfolio-iq
+ExecStart=/home/ec2-user/.local/bin/streamlit run dashboard/app.py --server.port 8501 --server.address 0.0.0.0
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

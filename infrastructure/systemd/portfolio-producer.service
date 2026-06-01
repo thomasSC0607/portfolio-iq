@@ -1,0 +1,14 @@
+[Unit]
+Description=PortfolioIQ Streaming Producer
+After=network.target
+
+[Service]
+Type=simple
+User=ec2-user
+WorkingDirectory=/home/ec2-user/portfolio-iq
+ExecStart=/usr/bin/python3 streaming/producer.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
